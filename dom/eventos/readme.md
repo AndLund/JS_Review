@@ -1,31 +1,55 @@
 # Estudos Javascript
 
-## Eventos
+## Transversing e Manipulacao
 
--addEventListener(param1,param2,param(opcional))
-Adiciona uma função ao elemento (callback) e quando determinado evento ocorrer ativará esta função.
-Possui três parametros mas o terceiro é opcional. Normalmente são utilizados os dois primeiros.
+- outerHTML, innerHTML, innerText
+  São propriedades que retornam uma string contendo HTML ou texto. Permitem atribuir um novo valor para as mesmas.
+  ex:
+  element.innerText = 'alterar o texto original'
 
-OBS: Uma boa prática é criar a função e chamá-la pelo nome dentro da addEventListener, no lugar de passar função anonima diretamente.
+  ex2:
+  const menu = document.querySelector('.menu');
 
+  menu.outerHTML; //retorna todo o HTML do elemento
+  menu.innerHTML; //retorna todo o HTML interno
+  menu.innerText; //retorna o texto sem tags
+
+-Transversing
+Navega pelo DOM através de suas propriedades e métodos.
+Desta forma pode-se descobrir quem são as tags pais e filhas.
 ex:
-function callback() {
-console.log('clicou');
-}
+const lista = document.querySelector('.animais-lista');
+lista.parentElement //pai
+lista.parentElement.parentElement //pai do pai
+lista.previousElementSibling //elemento acima
+lista.nextElementSibling //elemento abaixo
+lista.children //HTMLCollection com todos os filhos
+lista.children[0] // primeiro filho
+lista.children[--lista.children.length] //ultimo filho
+(da pra usar o querySelector('li:last-child'), por exemplo, para pegar o ultimo filho)
 
-img.addEventListener('click', callback);
+-Manipulando Elementos
+É possível mover elementos no DOM com métodos de Node.
+ex:
+const lista = document.querySelector('.animais-lista');
+const contato = document.querySelector('.contato');
+const titulo = document.querySelector('.titulo');
 
-- O primeiro parametro que é passado é o evento 'event'.
-  Quando se passa o evento como parametro o console.log retorna um objeto com várias propriedades.
+contato.appendChild(lista) //move lista para o final do contato
+contato.insertBefore(lista, titulo) //insere a lista antes de tudo
+contato.removeChild(titulo) //remove titulo de contato
+contato.replaceChild(lista, titulo) //substitui titulo por lista
 
--Propriedades mais comuns de Event
-.currentTarget (referente ao item que eu adicionei o evento)
-.target (onde o clique ocorreu)
-.type (tipo do evento)
-.path
-.preventDefault() (método)
-.this (faz referencia ao elemento que foi adicionado como o .currentTarget)
+-Criação de Novos Elementos
+ex:
+const animais = document.querySelector('.animais');
 
--Eventos mais comuns
-click, scroll,resize,keydown,keyup,mouseenter.
-Obs: Eventos podem ser adicionados a document e window.
+const novoH1 = document.createElement('h1');
+novoH1.innerText = 'Novo titulo';
+novoH1.classList.add('.titulo');
+novoH1.appendChild(novoH1);
+
+-Para clonar elementos
+ex:
+const titulo = document.querySelector('h1');
+const clone = titulo.cloneNode(true); //true para incluir os filhos, false para clonar so a tag sem os filhos
