@@ -8,3 +8,9 @@
 * funcoes
 * objetos/construtor
 * variaveis
+
+-----------
+
+## Recomeço
+
+* DOM;
