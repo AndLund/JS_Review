@@ -14,3 +14,7 @@
 ## Recomeço
 
 * DOM;
+
+## Livros
+* YDKJS - UP & GOING;
+* YDKJS - SCOPE & CLOSURES;
