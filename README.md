@@ -14,6 +14,7 @@
 ## Recomeço
 
 * DOM;
+* ES6;
 
 ## Livros
 * YDKJS - UP & GOING;
