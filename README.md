@@ -1,20 +1,12 @@
-# JS_Review
+# JS_Review / TIL
 
 
 ## Tópicos
 
-* conceitos básicos
-* dom
-* funcoes
-* objetos/construtor
-* variaveis
-
------------
-
-## Recomeço
-
 * DOM;
-* ES6;
+* CONDICIONAL;
+* FUNÇÃO;
+* ES6.
 
 ## Livros
 * YDKJS - UP & GOING;
